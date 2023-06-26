@@ -25,7 +25,7 @@ namespace People
             return;
 
             conn = new SQLiteAsyncConnection(_dbPath);
-            await conn.CreateTableAsync<Person>();
+            await conn.CreateTableAsync<MC_Person>();
         }
 
         public PersonRepository(string dbPath)
@@ -45,7 +45,7 @@ namespace People
                     throw new Exception("Valid name required");
 
                 // TODO: Insert the new person into the database
-                result = await conn.InsertAsync(new Person { Name = name });
+                result = await conn.InsertAsync(new MC_Person { Name = name });
 
                 StatusMessage = string.Format("{0} record(s) added (Name: {1})", result, name);
             }
@@ -56,20 +56,20 @@ namespace People
 
         }
 
-        public async Task<List<Person>> GetAllPeople()
+        public async Task<List<MC_Person>> GetAllPeople()
         {
             // TODO: Init then retrieve a list of Person objects from the database into a list
             try
             {
                 await Init();
-                return await conn.Table<Person>().ToListAsync();
+                return await conn.Table<MC_Person>().ToListAsync();
             }
             catch (Exception ex)
             {
                 StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
             }
 
-            return new List<Person>();
+            return new List<MC_Person>();
         }
     }
 }

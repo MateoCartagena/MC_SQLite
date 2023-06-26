@@ -10,12 +10,14 @@ using SQLite;
 namespace People.Models
 {
     [SQLite.Table("people")]
-    public class Person
+    public class MC_Person
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
         [SQLite.MaxLength(250), Unique]
         public string Name { get; set; }
+
+        public int edad { get; set; }
     }
 }
