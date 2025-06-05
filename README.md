@@ -118,7 +118,7 @@ spec:
       interval: 60s                   # Dentro de una ventana de 60 segundos
       baseEjectionTime: 30s          # El destino será expulsado durante 30s
       maxEjectionPercent: 100        # Hasta el 100% del tráfico puede ser expulsado
-
+```
 ---
 
 ## 📈 Monitoreo y Trazabilidad
